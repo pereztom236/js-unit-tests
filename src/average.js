@@ -10,7 +10,29 @@
     - average([1, 1]) // Retorno: 1;
     - average([1, '2']) // Retorno: undefined;
 */
+const verifyArray = (array) => {
+  if (array.length === 0) {
+    throw new Error();
+  }
+  array.forEach((element) => {
+    if (typeof element !== 'number') {
+      throw new Error();
+    }
+  });
+};
 
-const average = () => {};
+const average = (array) => {
+  try {
+    verifyArray(array);
+    let sum = 0;
+    array.forEach((element) => {
+      sum += element;
+    });
+    return Math.round(sum / array.length);
+  } catch (error) {
+    return undefined;
+  }
+};
+console.log(average([1, 2, '3']));
 
 module.exports = average;
