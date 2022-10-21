@@ -1,44 +1,32 @@
 const productDetails = require('../src/productDetails');
-/*
-  A função productDetails recebe duas strings que representam nomes de produtos, e retorna um array contendo dois objetos com os detalhes dos respectivos produtos.
-
-  Parâmetros:
-  - Uma string;
-  - Uma string;
-
-  Comportamento:
-  productDetails('Alcool gel', 'Máscara')
-
-  // Retorna:
-  [
-    {
-      name: 'Alcool gel'
-      details: {
-        productId: 'Alcool gel123'
-      }
-    },
-    {
-      name: 'Máscara'
-      details: {
-        productId: 'Máscara123'
-      }
-    }
-  ]
-
-  Escreva pelo menos cinco testes para essa função para garantir que a implementação de productDetails está correta.
-
-*/
 
 describe('6 - Implemente os casos de teste para a função `productDetails`', () => {
+  const returnedArray = productDetails('Alcool gel', 'Máscara');
+
   it('Verifica se a função `productDetails` tem o comportamento esperado', () => {
     expect(typeof productDetails).toBe('function');
-    expect(Array.isArray(productDetails('Alcool gel', 'Máscara'))).toBe(true);
-    expect(productDetails('Alcool gel', 'Máscara').length).toBe(2);
-    productDetails('Alcool gel', 'Máscara').forEach(element => {
+  });
+
+  it(`O retorno da função deve ser um array`, () => {
+    expect(Array.isArray(returnedArray)).toBe(true);
+  });
+
+  it('O array retornado deve ter tamanho 2', () => {
+    expect(returnedArray.length).toBe(2);
+  });
+  
+  it('Os elementos retornados devem ser objetos', () => {
+    returnedArray.forEach(element => {
       expect(typeof element).toBe('object');
     });
-    expect(productDetails('Alcool gel', 'Máscara')[0]).not.toBe(productDetails('Alcool gel', 'Máscara')[1]);
-    productDetails('Alcool gel', 'Máscara').forEach(element => {
+  });
+
+  it('Os elementos retornados não podem se repetir', () => {
+    expect(returnedArray[0]).not.toBe(returnedArray[1]);
+  });
+
+  it(`O 'productId' de cada elemento deve terminar com 123`, () => {
+    returnedArray.forEach(element => {
       expect(element.details.productId.endsWith('123')).toBe(true);
     });
   });

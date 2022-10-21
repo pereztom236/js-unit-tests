@@ -1,32 +1,39 @@
-/* eslint-disable max-len */
-
-const payment = (array, object) => {
+const payment = (consumption, menu) => {
   let bill = 0;
-  array.forEach((element) => {
-    for (let index = 0; index < Object.keys(object).length; index += 1) {
-      if (Object.keys(object.food)[index] === element) {
-        bill += Object.values(object.food)[index];
+
+  consumption.forEach((item) => {
+    for (let index = 0; index < Object.keys(menu).length; index += 1) {
+      if (Object.keys(menu.food)[index] === item) {
+        bill += Object.values(menu.food)[index];
       }
-      if (Object.keys(object.drink)[index] === element) {
-        bill += Object.values(object.drink)[index];
+
+      if (Object.keys(menu.drink)[index] === item) {
+        bill += Object.values(menu.drink)[index];
       }
     }
   });
+
   return (bill * 1.1).toFixed(2);
 };
 
-const createMenu = (object) => {
+const createMenu = (menu) => {
   const restaurant = {
-    fetchMenu: () => object,
+
+    fetchMenu: () => menu,
+
     consumption: [],
-    order(string) {
-      restaurant.consumption.push(string);
+
+    order(request) {
+      restaurant.consumption.push(request);
     },
+
     pay() {
-      const bill = payment(restaurant.consumption, object);
+      const bill = payment(restaurant.consumption, menu);
       return bill;
     },
+
   };
+
   return restaurant;
 };
 
