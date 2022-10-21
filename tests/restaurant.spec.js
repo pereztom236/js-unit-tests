@@ -20,7 +20,7 @@ describe('10 - Implemente a função `createMenu`, bem como seus casos de teste'
     expect(typeof restaurant.fetchMenu).toBe('function');
   });
 
-  it(`As chaves do objeto retornado pela função 'fetchMenu' devem ser 'food' e 'drink'`, () => {
+  it(`As chaves do objeto retornado pela função 'fetchMenu' devem ser iguais ao do objeto recebido como parâmetro`, () => {
     expect(Object.keys(restaurant.fetchMenu())).toEqual(['food', 'drink']);
   });
 
@@ -51,6 +51,7 @@ describe('10 - Implemente a função `createMenu`, bem como seus casos de teste'
 
   it(`O array 'consumption' deve poder receber valores repetidos`, () => {
     restaurant.order('coxinha');
+
     expect(restaurant.consumption).toEqual([
       'coxinha',
       'agua',
