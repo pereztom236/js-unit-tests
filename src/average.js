@@ -13,7 +13,7 @@ const verifyArray = (arrayOfNumbers) => {
 const average = (arrayOfNumbers) => {
   try {
     verifyArray(arrayOfNumbers);
-    
+
     let sum = 0;
 
     arrayOfNumbers.forEach((number) => {

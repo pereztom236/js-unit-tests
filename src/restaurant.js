@@ -18,7 +18,6 @@ const payment = (consumption, menu) => {
 
 const createMenu = (menu) => {
   const restaurant = {
-
     fetchMenu: () => menu,
 
     consumption: [],
@@ -31,7 +30,6 @@ const createMenu = (menu) => {
       const bill = payment(restaurant.consumption, menu);
       return bill;
     },
-
   };
 
   return restaurant;

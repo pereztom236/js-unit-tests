@@ -14,9 +14,9 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
   it('O array retornado deve ter tamanho 2', () => {
     expect(returnedArray.length).toBe(2);
   });
-  
+
   it('Os elementos retornados devem ser objetos', () => {
-    returnedArray.forEach(element => {
+    returnedArray.forEach((element) => {
       expect(typeof element).toBe('object');
     });
   });
@@ -26,7 +26,7 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
   });
 
   it(`O 'productId' de cada elemento deve terminar com 123`, () => {
-    returnedArray.forEach(element => {
+    returnedArray.forEach((element) => {
       expect(element.details.productId.endsWith('123')).toBe(true);
     });
   });

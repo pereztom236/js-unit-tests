@@ -4,7 +4,7 @@ const numbers = (myArray) => {
       return false;
     }
   }
-  
+
   return true;
 };
 

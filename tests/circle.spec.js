@@ -35,7 +35,9 @@ describe('4 - Implemente os casos de teste para a função `circle`', () => {
 
   it(`A função retorna os valores corretos para circle(3)`, () => {
     expect(circle(3).radius).toBe(3);
+
     expect(circle(3).area).toBeCloseTo(28.26, 2);
+
     expect(circle(3).circumference).toBeCloseTo(18.84, 2);
   });
 });
